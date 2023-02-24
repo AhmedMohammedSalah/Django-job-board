@@ -9,6 +9,10 @@ django model field :
     db size 
 '''
 
+def image_upload(instance,filename):
+    image_name,extension = filename.split(".")
+    return "jobs/%s/%s.%s"%(instance.id,instance.id,extension)
+
 class Job(models.Model):# as atable 
     title =models.CharField(max_length=100) # as Column 
     # location 
@@ -28,7 +32,7 @@ class Job(models.Model):# as atable
     # category =models.models.ManyToManyField("app.Model", verbose_name=_(""))('Category',on_delete=models.CASCADE)
     ###############################
     exprience=models.IntegerField(default=0) 
-
+    image=models.ImageField(upload_to=image_upload)
     def __str__(self):
         return self.title
 
