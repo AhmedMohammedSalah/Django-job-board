@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # My Apps 
-    'job','home', 'contact','blog'
+    'job','home', 'contact','blog',"bootstrap4",
     ]
 
 MIDDLEWARE = [
