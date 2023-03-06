@@ -5,7 +5,6 @@ from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 # Create your models here.
 
-
 class Profile (models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     city = models.ForeignKey('City', related_name="user_city",
@@ -26,3 +25,5 @@ def create_profile(sender, instance, created, **kwargs):
 
 class City(models.Model):
     name = models.CharField(max_length=30)
+    def __str__(self):
+        return str(self.name)

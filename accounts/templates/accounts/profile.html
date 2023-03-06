@@ -1,0 +1,83 @@
+{% extends 'base.html' %} {% load bootstrap4 %} {% block body %}
+
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_1">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="bradcam_text mx-auto">
+          <h3>Hello {{profile.user.first_name}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ bradcam_area  -->
+
+<div class="job_details_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mx-auto">
+        <div class="job_sumary">
+          <div class="summery_header">
+            <h3>{{profile.user.first_name}} Profile</h3>
+          </div>
+          <div class="job_content">
+            <img
+              src="{{profile.image.url}}"
+              alt=""
+              width="200px"
+              hight="250px"
+            />
+            <ul>
+              <li></li>
+              <li>
+                Name :
+                <span
+                  >{{profile.user.first_name}} {{profile.user.last_name}}</span
+                >
+              </li>
+              <li>Email: <span>{{profile.user.email}}</span></li>
+              <li>Phone: <span>{{profile.phone}}</span></li>
+              <li>Address: <span>{{profile.city}}</span></li>
+            </ul>
+            <a class="boxed-btn3 w-100" href="{% url 'accounts:profile_edit' %}"
+              >Edit Profile</a
+            >
+          </div>
+          {% comment %}
+        </div>
+        <div class="job_location_wrap">
+          <div class="job_lok_inner">
+            <div id="map" style="height: 200px"></div>
+            <script>
+              function initMap() {
+                var uluru = { lat: -25.363, lng: 131.044 };
+                var grayStyles = [
+                  {
+                    featureType: "all",
+                    stylers: [{ saturation: -90 }, { lightness: 50 }],
+                  },
+                  {
+                    elementType: "labels.text.fill",
+                    stylers: [{ color: "#ccdee9" }],
+                  },
+                ];
+                var map = new google.maps.Map(document.getElementById("map"), {
+                  center: { lat: -31.197, lng: 150.744 },
+                  zoom: 9,
+                  styles: grayStyles,
+                  scrollwheel: false,
+                });
+              }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap"></script>
+          </div>
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
