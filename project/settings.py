@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'job',
     'home',
     'blog',
-    "bootstrap4", 'django_filters',
+    "bootstrap4", 'django_filters','rest_framework',
 ]
 
 MIDDLEWARE = [
